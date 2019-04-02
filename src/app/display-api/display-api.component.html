@@ -1,0 +1,23 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="checkbox">
+			<input type="checkbox" value="">
+		</div>
+		<div class="col-md-4">
+			<span *ngIf="getxStatus() == 'confirm'" class="glyphicon glyphicon-plane" style="color:green"></span>
+			<span *ngIf="getxStatus() == 'cancel'" class="glyphicon glyphicon-folder-open" style="color:red"></span>
+			<span *ngIf="getxStatus() == 'actionRequired'" class="glyphicon glyphicon-bell" style="color:yellow"></span>
+			<span *ngIf="getxStatus() == 'information'" class="glyphicon glyphicon-italic" style="color:blue"></span>
+      <p>{{getCode()}} - {{getHost()}}</p>
+      <p>Crée le {{getCreated() | date}} <span *ngIf="getAgentLastName()" >par {{getAgentLastName()}} {{getAgentFirstName()}}</span></p>
+		</div>
+		<div class="col-md-4">
+      <p *ngIf="getClientLastName()">{{getClientLastName()}} {{getClientFirstName()}}  {{getNumberOfClients()}} <span *ngIf="getNumberOfClients() == 1">voyageur</span><span *ngIf="getNumberOfClients() != 1">voyageurs</span></p>
+      <p>{{getEntireTrip()}}</p>
+      <p *ngIf="getBeginTrip()">du {{getBeginTrip()| date }} au {{getEndTrip() | date }}</p>
+		</div>
+		<div class="col-md-4">
+      <p> {{getPrice()}} {{getCurrency()}} </p>
+		</div>
+	</div>
+</div>
